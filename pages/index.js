@@ -1,4 +1,5 @@
 import Head from "next/head";
+import useSWR from "swr";
 
 import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
@@ -43,3 +44,21 @@ export async function getStaticProps() {
     },
   };
 }
+
+// // Server-side Rendering (Every request)
+// export async function getServerSideProps(context) {
+//   return {
+//     props: {
+//       // props for your component
+//     },
+//   };
+// }
+
+// // Improvement Client-side Rendering (No pre-rendering)
+// function Profile() {
+//   const { data, error } = useSWR("/api/user", fetch);
+
+//   if (error) return <div>failed to load</div>;
+//   if (!data) return <div>loading...</div>;
+//   return <div>hello {data.name}!</div>;
+// }
